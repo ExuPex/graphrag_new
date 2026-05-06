@@ -1,14 +1,32 @@
 id,name,baustein_id,paragraph,beschreibung
 G-BRAND,Brand,B-FEUER,A 3.1,"Feuer ohne bestimmungsgemaessen Herd, das sich aus eigener Kraft ausbreitet."
 G-BLITZ,Blitzschlag,B-FEUER,A 3.2,Unmittelbarer Uebergang eines Blitzes auf Sachen.
+G-UEBERSPANNUNG,Ueberspannung durch Blitz,B-FEUER,A 3.3,"Schaeden durch Ueberspannung, Ueberstrom oder Kurzschluss durch Blitz oder atmosphaerische Elektrizitaet."
 G-EXPLOSION,Explosion,B-FEUER,A 3.4,Ploetzliche Kraftaeusserung durch Ausdehnung von Gasen oder Daempfen.
+G-VERPUFFUNG,Verpuffung,B-FEUER,A 3.4,"Wie Explosion, aber geringere Intensitaet."
+G-IMPLOSION,Implosion,B-FEUER,A 3.5,Ploetzlicher Zusammenfall eines Hohlkoerpers durch aeusseren Ueberdruck.
+G-LUFTFAHRZEUG,Anprall/Absturz Luftfahrzeug,B-FEUER,A 3.6,"Anprall oder Absturz eines Luftfahrzeugs, seiner Teile oder seiner Ladung."
+G-FAHRZEUGANPRALL,Fahrzeuganprall,B-FEUER,A 3.7,"Anprall von Strassen-, Schienen- oder Wasserfahrzeugen."
+G-SENG,Sengschaeden,B-FEUER,A 3.8,"Sengschaeden, primaer als Folge eines Feuerereignisses."
+G-RAUCH,Rauch- und Russschaeden,B-FEUER,A 3.9,Schaeden durch Rauch und Russ.
 G-EINBRUCH,Einbruchdiebstahl,B-EINBRUCH,A 4.1,Unberechtigtes Eindringen oder Aufbrechen mit Diebstahl.
 G-RAUB,Raub,B-EINBRUCH,A 4.4,Wegnahme unter Gewalt oder Drohung.
 G-VANDALISMUS,Vandalismus,B-EINBRUCH,A 4.3,Vorsaetzliche Zerstoerung nach Einbruch.
+G-DIEB-KFZ,Diebstahl aus Kraftfahrzeugen,B-EINBRUCH,A 4.2.1,Diebstahl nach Aufbrechen eines verschlossenen KFZ.
+G-TRICKDIEB,Trickdiebstahl,B-EINBRUCH,A 4.2.3,Diebstahl nach Taeuschung beim Eintritt in die Wohnung.
+G-DIEB-MOBIL,Diebstahl Rollstuhl/Kinderwagen,B-EINBRUCH,A 4.2.4,"Diebstahl von Rollstuehlen, Rollatoren, Kinderwagen vom Versicherungsort."
+G-DIEB-STAT,Diebstahl im Krankenhaus,B-EINBRUCH,A 4.2.5,Diebstahl waehrend stationaerem Aufenthalt.
+G-DIEB-GARTEN,Diebstahl Gartenmoebel,B-EINBRUCH,A 4.2.6,Diebstahl von Gartenmoebeln vom Versicherungsgrundstueck.
+G-DIEB-WAESCHE,Diebstahl Waesche,B-EINBRUCH,A 4.2.7,Diebstahl von zum Trocknen ausgehaengter Waesche.
 G-LEITWASSER,Leitungswasser,B-LEITUNGSWASSER,A 5.2,Bestimmungswidrig austretendes Wasser aus Rohren oder Anlagen.
 G-BRUCH,Bruchschaden,B-LEITUNGSWASSER,A 5.3,Frostbedingte und sonstige Bruchschaeden an Rohren.
 G-STURM,Sturm,B-STURM,A 6.1,Wetterbedingte Luftbewegung ab Windstaerke 8.
 G-HAGEL,Hagel,B-STURM,A 6.2,Fester Witterungsniederschlag in Form von Eiskoernern.
 G-UEBERSCHWEMMUNG,Ueberschwemmung,B-ELEMENTAR,A 6.4.1,Ueberflutung des Grundstuecks mit Oberflaechenwasser.
+G-RUECKSTAU,Rueckstau,B-ELEMENTAR,A 6.4.2,Wasser tritt aus Ableitungsrohren ins Gebaeude zurueck.
 G-ERDBEBEN,Erdbeben,B-ELEMENTAR,A 6.4.3,Naturbedingte Erschuetterung des Erdbodens.
+G-ERDSENKUNG,Erdsenkung,B-ELEMENTAR,A 6.4.4,Naturbedingte Absenkung des Erdbodens ueber Hohlraeumen.
+G-ERDRUTSCH,Erdrutsch,B-ELEMENTAR,A 6.4.5,Naturbedingtes Abrutschen von Erd- oder Gesteinsmassen.
+G-SCHNEEDRUCK,Schneedruck,B-ELEMENTAR,A 6.4.6,Wirkung des Gewichts von Schnee- oder Eismassen.
 G-LAWINE,Lawine,B-ELEMENTAR,A 6.4.7,"Schnee- oder Eismassen, die an Berghaengen niedergehen."
+G-VULKAN,Vulkanausbruch,B-ELEMENTAR,A 6.4.8,Ploetzliche Druckentladung beim Aufreissen der Erdkruste.
