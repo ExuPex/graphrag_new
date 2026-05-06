@@ -1,0 +1,8 @@
+id,name,paragraph,beschreibung
+NH-GEBAEUDETEIL,Gebaeudebestandteile,A 9.1.1,"Gebaeudebestandteile gehoeren nicht zum Hausrat. Ausnahme: Einbausachen, die der VN als Mieter selbst beschafft hat."
+NH-GEB-EIGENT,Sachen des Gebaeudeeigentuemers,A 9.1.2,"Eingebrachte Sachen des Eigentuemers, fuer die dieser die Gefahr traegt, sind nicht versichert."
+NH-KFZ,Kraftfahrzeuge und Anhaenger,A 9.1.3,"Kfz und Anhaenger aller Art inkl. Teile und Zubehoer. Ausnahme: Rasenmaeher, Go-Karts, Modellfahrzeuge (A 8.3.4)."
+NH-LUFT-WASSER,Luft- und Wasserfahrzeuge,A 9.1.4,"Luft- und Wasserfahrzeuge inkl. nicht eingebauter Teile. Ausnahme: Kanus, Faltboote, Surfgeraete, Gleitschirme (A 8.3.5-6)."
+NH-MIETER,Hausrat von Mietern/Untermietern,A 9.1.5,"Hausrat von Mietern oder Untermietern in der Wohnung des VN ist nicht mitversichert, sofern nicht vom VN ueberlassen."
+NH-ANDERSVERSICH,Anderweitig versicherte Sachen,A 9.1.6,"Sachen mit eigenem separaten Versicherungsvertrag (z.B. Schmuck-, Kunstpolice) sind hier ausgeschlossen."
+NH-DATEN,Elektronische Daten/Programme,A 9.1.7,Elektronisch gespeicherte Daten und Programme sind nicht versichert. Wiederherstellungskosten nur bei Zusatzvereinbarung.
