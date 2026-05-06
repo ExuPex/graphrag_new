@@ -1,13 +1,15 @@
 // =============================================================================
-// HAUSRAT-WISSENSGRAPH v3
+// HAUSRAT-WISSENSGRAPH v4 (bereinigt)
 // =============================================================================
-// Aenderungen gegenueber v2:
-//   - Ausschluesse haengen an Bausteinen (nicht mehr am Vertrag)
-//   - Generelle Ausschluesse (Krieg, Kern, Innere Unruhen) haengen an ALLEN
-//     Bausteinen gleichzeitig
-//   - Neuer Knotentyp NichtHausrat (was laut A 9 nicht versichert ist)
+// Enthaelt:
+//   - Alle Gefahren laut VHB
+//   - Ausschluesse an Bausteinen (generelle an allen, spezielle am jeweiligen)
+//   - Sturmflut/Trockenheit etc. gilt fuer B-STURM UND B-ELEMENTAR
+//   - VersicherteSache + Entschaedigungsgrenze
+//   - NichtHausrat mit Belegen
+//   - Textchunks fuer alle relevanten Knoten
 //
-// VOR dem Ausfuehren: ExuPex/graphrag_new durch deinen Pfad ersetzen
+// VOR dem Ausfuehren: ExuPex/graphrag_new ersetzen (z.B. ExuPex/graphrag)
 // =============================================================================
 
 
@@ -61,7 +63,7 @@ MERGE (n:NichtHausrat {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
 
-// 3) Beziehungen aufbauen
+// 3) Beziehungen
 
 // Vertrag -> Bausteine
 MATCH (v:Vertrag), (b:Deckungsbaustein)
@@ -73,14 +75,16 @@ MATCH (b:Deckungsbaustein {id: row.baustein_id})
 MATCH (g:Gefahr {id: row.id})
 MERGE (b)-[:ENTHAELT_GEFAHR]->(g);
 
-// Spezielle Ausschluesse direkt an den angegebenen Baustein
+// Spezielle Ausschluesse: baustein_id kann mehrere mit | enthalten
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 WITH row WHERE row.baustein_id <> 'ALLE'
-MATCH (b:Deckungsbaustein {id: row.baustein_id})
+WITH row, split(row.baustein_id, '|') AS baustein_liste
+UNWIND baustein_liste AS bid
+MATCH (b:Deckungsbaustein {id: bid})
 MATCH (a:Ausschluss {id: row.id})
 MERGE (b)-[:SCHLIESST_AUS]->(a);
 
-// Generelle Ausschluesse an JEDEN Baustein haengen
+// Generelle Ausschluesse an alle Bausteine
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 WITH row WHERE row.baustein_id = 'ALLE'
 MATCH (b:Deckungsbaustein)
@@ -108,27 +112,26 @@ MERGE (s)-[:GEHOERT_ZU]->(v);
 MATCH (v:Vertrag), (n:NichtHausrat)
 MERGE (n)-[:NICHT_TEIL_VON]->(v);
 
-// Alten direkten Ausschluss-Link vom Vertrag loeschen (Aufraeumen von v2)
+// Aufraeumen: alte direkte Ausschluss-Links vom Vertrag entfernen
 MATCH (v:Vertrag)-[r:SCHLIESST_AUS]->()
 DELETE r;
 
 
 // 4) Verifikation
+// Erwartet:
+//   Vertrag=1, Deckungsbaustein=5, Gefahr=31, Ausschluss=17,
+//   TextChunk=58, VersicherteSache=11, Entschaedigungsgrenze=9, NichtHausrat=7
 MATCH (n) RETURN labels(n)[0] AS typ, count(*) AS anzahl ORDER BY typ;
+
 MATCH ()-[r]->() RETURN type(r) AS beziehung, count(*) AS anzahl ORDER BY beziehung;
 
 
 // 5) Probefragen
 
-// Welche Ausschluesse hat der Leitungswasser-Baustein?
-MATCH (b:Deckungsbaustein {id:'B-LEITUNGSWASSER'})-[:SCHLIESST_AUS]->(a:Ausschluss)
-RETURN b.name AS baustein, a.name AS ausschluss, a.paragraph AS quelle
-ORDER BY a.paragraph;
-
-// Generelle Ausschluesse - bei welchen Bausteinen tauchen sie auf?
-MATCH (b:Deckungsbaustein)-[:SCHLIESST_AUS]->(a:Ausschluss {art:'generell'})
-RETURN a.name AS ausschluss, collect(b.name) AS gilt_fuer;
+// Welche Ausschluesse gelten fuer den Elementar-Baustein?
+MATCH (b:Deckungsbaustein {id:'B-ELEMENTAR'})-[:SCHLIESST_AUS]->(a:Ausschluss)
+RETURN a.name, a.paragraph ORDER BY a.paragraph;
 
 // Was gehoert nicht zum Hausrat?
-MATCH (n:NichtHausrat)
-RETURN n.name, n.paragraph, n.beschreibung ORDER BY n.paragraph;
+MATCH (n:NichtHausrat)-[:BELEGT_DURCH]->(t:TextChunk)
+RETURN n.name, t.text ORDER BY n.paragraph;
