@@ -5,7 +5,7 @@
 //   Stufe 1: alle Gefahren laut VHB
 //   Stufe 2: VersicherteSache + Entschaedigungsgrenze als neue Knoten
 //
-// VOR dem Ausfuehren: ueberall DEIN-USER/DEIN-REPO durch deinen Pfad ersetzen
+// VOR dem Ausfuehren: ueberall ExuPex/graphrag_new durch deinen Pfad ersetzen
 // (z.B. ExuPex/graphrag).
 //
 // Das Skript ist idempotent (MERGE) - du kannst es ueber den vorhandenen
@@ -26,29 +26,29 @@ CREATE CONSTRAINT grenze_id       IF NOT EXISTS FOR (n:Entschaedigungsgrenze) RE
 
 // 2) Knoten laden
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/vertrag.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/vertrag.csv' AS row
 MERGE (n:Vertrag {id: row.id})
 SET n.name = row.name, n.modell = row.modell, n.stand = row.stand;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/bausteine.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/bausteine.csv' AS row
 MERGE (n:Deckungsbaustein {id: row.id})
 SET n.name = row.name, n.art = row.art, n.paragraph = row.paragraph;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/gefahren.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/gefahren.csv' AS row
 MERGE (n:Gefahr {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/ausschluesse.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 MERGE (n:Ausschluss {id: row.id})
 SET n.name = row.name, n.art = row.art, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/textchunks.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/textchunks.csv' AS row
 MERGE (n:TextChunk {id: row.id})
 SET n.paragraph = row.paragraph, n.titel = row.titel, n.text = row.text;
 
 // NEU: Entschaedigungsgrenzen
 // Leere Zellen bei betrag_eur und prozent_vs werden zu null.
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/grenzen.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/grenzen.csv' AS row
 MERGE (n:Entschaedigungsgrenze {id: row.id})
 SET n.name = row.name,
     n.einheit = row.einheit,
@@ -57,7 +57,7 @@ SET n.name = row.name,
     n.paragraph = row.paragraph;
 
 // NEU: Versicherte Sachen
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/sachen.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/sachen.csv' AS row
 MERGE (n:VersicherteSache {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
@@ -69,7 +69,7 @@ MATCH (v:Vertrag), (b:Deckungsbaustein)
 MERGE (v)-[:HAT_BAUSTEIN]->(b);
 
 // Deckungsbaustein -[:ENTHAELT_GEFAHR]-> Gefahr
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/gefahren.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/gefahren.csv' AS row
 MATCH (b:Deckungsbaustein {id: row.baustein_id})
 MATCH (g:Gefahr {id: row.id})
 MERGE (b)-[:ENTHAELT_GEFAHR]->(g);
@@ -79,14 +79,14 @@ MATCH (v:Vertrag), (a:Ausschluss)
 MERGE (v)-[:SCHLIESST_AUS]->(a);
 
 // Knoten -[:BELEGT_DURCH]-> TextChunk
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/textchunks.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/textchunks.csv' AS row
 MATCH (n) WHERE n.id = row.gehoert_zu_id
 MATCH (t:TextChunk {id: row.id})
 MERGE (n)-[:BELEGT_DURCH]->(t);
 
 // NEU: VersicherteSache -[:HAT_GRENZE]-> Entschaedigungsgrenze
 // Nur wenn die Sache eine grenze_id in der CSV hat.
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/sachen.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/sachen.csv' AS row
 WITH row WHERE row.grenze_id <> ''
 MATCH (s:VersicherteSache {id: row.id})
 MATCH (g:Entschaedigungsgrenze {id: row.grenze_id})
