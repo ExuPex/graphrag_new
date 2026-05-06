@@ -1,20 +1,30 @@
 id,gehoert_zu_id,paragraph,titel,text
 T-A2,AUS-KRIEG,A 2,Generelle Ausschluesse,"Nicht versichert sind Schaeden durch Krieg, kriegsaehnliche Ereignisse, Buergerkrieg, Revolution, Rebellion, Aufstand, durch innere Unruhen sowie durch Kernenergie, nukleare Strahlung oder radioaktive Substanzen."
-T-A2-K,AUS-KERN,A 2.3,Kernenergie-Ausschluss,"Schaeden durch Kernenergie, nukleare Strahlung oder radioaktive Substanzen sind nicht versichert. Das gilt ohne Beruecksichtigung mitwirkender Ursachen."
-T-A2-I,AUS-INNERE,A 2.2,Innere Unruhen,Schaeden durch innere Unruhen sind nicht versichert. Das gilt ohne Beruecksichtigung mitwirkender Ursachen.
+T-A2-K,AUS-KERN,A 2.3,Kernenergie-Ausschluss,"Schaeden durch Kernenergie, nukleare Strahlung oder radioaktive Substanzen sind nicht versichert."
+T-A2-I,AUS-INNERE,A 2.2,Innere Unruhen,Schaeden durch innere Unruhen sind nicht versichert.
 T-A3-1,G-BRAND,A 3.1,Brand-Definition,"Brand ist ein Feuer, das ohne bestimmungsgemaessen Herd entstanden ist oder ihn verlassen hat und sich aus eigener Kraft auszubreiten vermag."
 T-A3-2,G-BLITZ,A 3.2,Blitzschlag,"Blitzschlag ist der unmittelbare Uebergang eines Blitzes auf Sachen. Auch Ueberspannungsschaeden gelten als Blitzschlag, wenn der Einschlag am Versicherungsort durch Spuren nachweisbar ist."
 T-A3-4,G-EXPLOSION,A 3.4,Explosion,"Explosion ist eine ploetzlich verlaufende Kraftaeusserung, die auf dem Ausdehnungsbestreben von Gasen oder Daempfen beruht."
 T-A4-1,G-EINBRUCH,A 4.1,Einbruchdiebstahl,"Einbruchdiebstahl liegt vor bei unberechtigtem Eindringen, Aufbrechen eines Behaeltnisses, Einschleichen, Verborgenhalten oder Eindringen mit zuvor durch Einbruch oder Raub erlangtem Schluessel."
 T-A4-3,G-VANDALISMUS,A 4.3,Vandalismus,"Vandalismus nach einem Einbruch liegt vor, wenn der Taeter in den Versicherungsort eindringt und dort versicherte Sachen vorsaetzlich zerstoert oder beschaedigt."
-T-A4-4,G-RAUB,A 4.4,Raub,"Raub ist die Wegnahme unter Gewalt, unter Androhung einer Gewalttat mit Gefahr fuer Leib oder Leben oder bei Verlust der Widerstandskraft des Versicherungsnehmers."
+T-A4-4,G-RAUB,A 4.4,Raub,"Raub ist die Wegnahme unter Gewalt, unter Androhung einer Gewalttat mit Gefahr fuer Leib oder Leben oder bei Verlust der Widerstandskraft des VN."
 T-A5-2,G-LEITWASSER,A 5.2,Leitungswasser,"Leitungswasser ist Wasser, das bestimmungswidrig aus Rohren der Wasserversorgung, verbundenen Schlaeuchen, Heizungs- oder Klimaanlagen, Wasserloesch- oder Berieselungsanlagen, Wasserbetten oder Aquarien austritt."
-T-A5-3,G-BRUCH,A 5.3,Bruchschaeden,"Versichert sind frostbedingte und sonstige Bruchschaeden an Rohren der Wasser-, Gas- und Heizungsversorgung sowie frostbedingte Bruchschaeden an Badeeinrichtungen, Heizkoerpern und vergleichbaren Installationen innerhalb des Gebaeudes."
+T-A5-3,G-BRUCH,A 5.3,Bruchschaeden,"Versichert sind frostbedingte und sonstige Bruchschaeden an Rohren der Wasser-, Gas- und Heizungsversorgung sowie an Heizkoerpern und vergleichbaren Installationen innerhalb des Gebaeudes."
 T-A5-4,AUS-PLANSCHWASSER,A 5.4.1,Plansch-Ausschluss,Schaeden durch Plansch- oder Reinigungswasser sind nicht von der Leitungswasserdeckung umfasst.
-T-A6-1,G-STURM,A 6.1,Sturm-Definition,"Sturm ist eine wetterbedingte Luftbewegung von mindestens Windstaerke 8, also Windgeschwindigkeit ab 62 km/h. Ist die Windstaerke vor Ort nicht messbar, kann Sturm ueber Schaeden in der Umgebung nachgewiesen werden."
+T-A6-1,G-STURM,A 6.1,Sturm-Definition,"Sturm ist eine wetterbedingte Luftbewegung von mindestens Windstaerke 8, also Windgeschwindigkeit ab 62 km/h."
 T-A6-2,G-HAGEL,A 6.2,Hagel,Hagel ist ein fester Witterungsniederschlag in Form von Eiskoernern.
-T-A6-4-1,G-UEBERSCHWEMMUNG,A 6.4.1,Ueberschwemmung,"Ueberschwemmung ist die Ueberflutung von Grund und Boden des Versicherungsgrundstuecks mit erheblichen Mengen Oberflaechenwasser, ausgeloest durch Ausuferung oberirdischer Gewaesser oder Witterungsniederschlaege."
+T-A6-4-1,G-UEBERSCHWEMMUNG,A 6.4.1,Ueberschwemmung,"Ueberschwemmung ist die Ueberflutung von Grund und Boden des Versicherungsgrundstuecks mit erheblichen Mengen Oberflaechenwasser, ausgeloest durch Ausuferung oder Witterungsniederschlaege."
 T-A6-4-3,G-ERDBEBEN,A 6.4.3,Erdbeben,"Erdbeben ist eine naturbedingte Erschuetterung des Erdbodens, ausgeloest durch geophysikalische Vorgaenge im Erdinneren."
 T-A6-4-7,G-LAWINE,A 6.4.7,Lawine,"Lawinen sind Schnee- oder Eismassen, die an Berghaengen niedergehen."
-T-A6-5,AUS-STURMFLUT,A 6.5.1,Sturmflut-Ausschluss,"Schaeden durch Sturmflut sind nicht versichert. Das gilt auch dann, wenn Sturm oder Hagel mitgewirkt haben."
-T-A6-5T,AUS-TROCKEN,A 6.5.5,Trockenheit-Ausschluss,Schaeden durch Trockenheit oder Austrocknung sind nicht von der Naturgefahrendeckung umfasst.
+T-A6-5,AUS-STURMFLUT,A 6.5.1,Sturmflut-Ausschluss,Schaeden durch Sturmflut sind nicht versichert.
+T-A6-5T,AUS-TROCKEN,A 6.5.5,Trockenheit-Ausschluss,Schaeden durch Trockenheit oder Austrocknung sind nicht versichert.
+T-A3-3,G-UEBERSPANNUNG,A 3.3,Ueberspannung,Ueberspannung durch Blitz oder atmosphaerische Elektrizitaet an versicherten elektrischen Geraeten ist eigenstaendig gedeckt.
+T-A3-7,G-FAHRZEUGANPRALL,A 3.7,Fahrzeuganprall,"Versichert ist der Anprall von Strassen-, Schienen- oder Wasserfahrzeugen an versicherten Sachen. Schaeden durch Fahrzeuge des VN selbst sind ausgeschlossen."
+T-A3-9,G-RAUCH,A 3.9,Rauch und Russ,"Versichert sind Schaeden, die durch ploetzlich bestimmungswidrig austretenden Rauch oder Russ aus Feuerungs-, Heiz-, Koch- oder Trocknungsanlagen entstehen. Allmaehliches Einwirken (Fogging) ist nicht versichert."
+T-A4-2-3,G-TRICKDIEB,A 4.2.3,Trickdiebstahl,"Versichert ist der Trickdiebstahl, bei dem ein Taeter durch Taeuschung in die Wohnung gelangt und Sachen entwendet. Die freiwillige Herausgabe nach Taeuschung ist nicht versichert."
+T-A6-4-2,G-RUECKSTAU,A 6.4.2,Rueckstau,"Rueckstau liegt vor, wenn Wasser aus den gebaeudeeigenen Ableitungsrohren in das Gebaeude eindringt, ausgeloest durch Ausuferung oder Witterungsniederschlaege."
+T-A6-4-6,G-SCHNEEDRUCK,A 6.4.6,Schneedruck,"Schneedruck ist die Wirkung des Gewichts von Schnee- oder Eismassen, einschliesslich Abrutschen vom Dach."
+T-A8,S-HAUSRAT,A 8.1,Hausrat,"Zum Hausrat gehoeren alle Sachen, die dem Haushalt des Versicherungsnehmers zur privaten Nutzung dienen, einschliesslich Wertsachen, Bargeld und Haustieren."
+T-A8-3,S-BALKONKRAFT,A 8.3.3,Balkonkraftwerk,"Balkonkraftwerke (Steckersolaranlagen, Mini-PV) sind versichert, sofern sie der versicherten Wohnung dienen. Es gilt eine eigene Entschaedigungsgrenze."
+T-A18,S-BARGELD,A 18,Wertsachen,"Wertsachen umfassen Bargeld, Geldkarten, Urkunden, Wertpapiere, Schmuck, Edelmetalle, Pelze, Teppiche und Kunst. Ausserhalb eines Wertschutzschranks gelten reduzierte Entschaedigungsgrenzen."
+T-A18-S,S-SCHMUCK,A 18.1.1.3,Schmuck,"Schmuck, Edelsteine, Perlen, Briefmarken, Muenzen, Medaillen sowie alle Sachen aus Gold oder Platin gehoeren zu den Wertsachen mit gesonderten Grenzen."
