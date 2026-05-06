@@ -1,7 +1,7 @@
 id,name,art,baustein_id,paragraph,beschreibung
-AUS-KRIEG,Krieg,generell,ALLE,A 2.1,"Schaeden durch Krieg, Buergerkrieg, Aufstand."
-AUS-INNERE,Innere Unruhen,generell,ALLE,A 2.2,Schaeden durch innere Unruhen.
-AUS-KERN,Kernenergie,generell,ALLE,A 2.3,"Schaeden durch Kernenergie, nukleare Strahlung oder radioaktive Substanzen."
+AUS-KRIEG,Krieg,generell,VERTRAG,A 2.1,"Schaeden durch Krieg, Buergerkrieg, Aufstand."
+AUS-INNERE,Innere Unruhen,generell,VERTRAG,A 2.2,Schaeden durch innere Unruhen.
+AUS-KERN,Kernenergie,generell,VERTRAG,A 2.3,"Schaeden durch Kernenergie, nukleare Strahlung oder radioaktive Substanzen."
 AUS-ERDBEBEN-FEU,Erdbeben (Feuer-Kontext),speziell,B-FEUER,A 3.10.1,Im Feuer-Baustein sind Schaeden durch Erdbeben ausgeschlossen.
 AUS-VERBR-MOTOR,Verbrennungsmotor-Innenexpl.,speziell,B-FEUER,A 3.10.2,Explosionen im Verbrennungsraum eines Motors sind nicht versichert.
 AUS-SCHALTORGANE,Schaltorgane elektr. Schalter,speziell,B-FEUER,A 3.10.2,Schaeden an Schaltorganen durch Gasdruck sind nicht versichert.
