@@ -1,18 +1,18 @@
 id,name,art,baustein_id,paragraph,beschreibung
-AUS-KRIEG,Krieg,generell,ALLE,A 2.1,"Schaeden durch Krieg, Buergerkrieg, Aufstand. Gilt ohne Beruecksichtigung mitwirkender Ursachen."
-AUS-INNERE,Innere Unruhen,generell,ALLE,A 2.2,Schaeden durch innere Unruhen. Gilt ohne Beruecksichtigung mitwirkender Ursachen.
+AUS-KRIEG,Krieg,generell,ALLE,A 2.1,"Schaeden durch Krieg, Buergerkrieg, Aufstand."
+AUS-INNERE,Innere Unruhen,generell,ALLE,A 2.2,Schaeden durch innere Unruhen.
 AUS-KERN,Kernenergie,generell,ALLE,A 2.3,"Schaeden durch Kernenergie, nukleare Strahlung oder radioaktive Substanzen."
 AUS-ERDBEBEN-FEU,Erdbeben (Feuer-Kontext),speziell,B-FEUER,A 3.10.1,Im Feuer-Baustein sind Schaeden durch Erdbeben ausgeschlossen.
 AUS-VERBR-MOTOR,Verbrennungsmotor-Innenexpl.,speziell,B-FEUER,A 3.10.2,Explosionen im Verbrennungsraum eines Motors sind nicht versichert.
 AUS-SCHALTORGANE,Schaltorgane elektr. Schalter,speziell,B-FEUER,A 3.10.2,Schaeden an Schaltorganen durch Gasdruck sind nicht versichert.
-AUS-NATUR-EINBR,Naturgefahren bei Einbruch,speziell,B-EINBRUCH,A 4.5.1,Bei Einbruch/Raub keine Deckung fuer Elementarschaeden wie Ueberschwemmung oder Erdbeben.
-AUS-RAUB-HERANSCH,Herangeschaffte Sachen (Raub),speziell,B-EINBRUCH,A 4.5.2,"Sachen, die erst auf Verlangen des Raubtaeters herangeschafft werden, sind nicht versichert."
+AUS-NATUR-EINBR,Naturgefahren bei Einbruch,speziell,B-EINBRUCH,A 4.5.1,Bei Einbruch/Raub keine Deckung fuer Elementarschaeden.
+AUS-RAUB-HERANSCH,Herangeschaffte Sachen (Raub),speziell,B-EINBRUCH,A 4.5.2,"Sachen, die erst auf Verlangen herangeschafft werden, sind nicht versichert."
 AUS-PLANSCHWASSER,Plansch-/Reinigungswasser,speziell,B-LEITUNGSWASSER,A 5.4.1,Plansch- oder Reinigungswasser zaehlt nicht als Leitungswasser.
 AUS-SCHWAMM,Schwamm/Hausfaeulepilze,speziell,B-LEITUNGSWASSER,A 5.4.2,Schaeden durch Schwamm oder Hausfaeulepilze sind ausgeschlossen.
-AUS-GRUNDWASSER,Grundwasser/Niederschlag,speziell,B-LEITUNGSWASSER,A 5.4.3,"Grundwasser, stehende/fliessende Gewaesser und Witterungsniederschlaege sind ausgeschlossen."
+AUS-GRUNDWASSER,Grundwasser/Niederschlag,speziell,B-LEITUNGSWASSER,A 5.4.3,"Grundwasser, Gewaesser und Witterungsniederschlaege sind ausgeschlossen."
 AUS-AQUARIUM,Aquariuminhalt,speziell,B-LEITUNGSWASSER,A 5.4.8,Schaeden am Inhalt eines Aquariums durch ausgetretenes Wasser sind nicht versichert.
-AUS-STURMFLUT,Sturmflut,speziell,B-STURM,A 6.5.1,"Schaeden durch Sturmflut sind nicht versichert, auch wenn Sturm mitgewirkt hat."
-AUS-OFFENE-OEFFN,Offene Fenster/Tueren,speziell,B-STURM,A 6.5.2,Eindringen von Regen/Hagel/Schnee durch nicht geschlossene Oeffnungen ist ausgeschlossen.
-AUS-GRUNDW-STURM,Grundwasser (Sturm-Kontext),speziell,B-STURM,A 6.5.3,Grundwasser ohne Niederschlags- oder Ausuferungsursache ist ausgeschlossen.
-AUS-TROCKEN,Trockenheit/Austrocknung,speziell,B-STURM,A 6.5.5,Schaeden durch Trockenheit oder Austrocknung sind nicht versichert.
-AUS-AUSSEN-SACHEN,Sachen ausserhalb Gebaeude,speziell,B-STURM,A 6.5.7,"Sachen ausserhalb von Gebaeuden sind nicht gedeckt (Ausnahme: Antennen, Markisen, Balkonkraftwerke)."
+AUS-STURMFLUT,Sturmflut,speziell,B-STURM|B-ELEMENTAR,A 6.5.1,Schaeden durch Sturmflut sind nicht versichert.
+AUS-OFFENE-OEFFN,Offene Fenster/Tueren,speziell,B-STURM|B-ELEMENTAR,A 6.5.2,Eindringen durch nicht geschlossene Oeffnungen ist ausgeschlossen.
+AUS-GRUNDW-STURM,Grundwasser (Sturm-Kontext),speziell,B-STURM|B-ELEMENTAR,A 6.5.3,Grundwasser ohne Niederschlagsursache ist ausgeschlossen.
+AUS-TROCKEN,Trockenheit/Austrocknung,speziell,B-STURM|B-ELEMENTAR,A 6.5.5,Schaeden durch Trockenheit oder Austrocknung sind nicht versichert.
+AUS-AUSSEN-SACHEN,Sachen ausserhalb Gebaeude,speziell,B-STURM|B-ELEMENTAR,A 6.5.7,"Sachen ausserhalb von Gebaeuden sind nicht gedeckt (Ausnahme: Antennen, Markisen, Balkonkraftwerke)."
