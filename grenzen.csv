@@ -1,0 +1,10 @@
+id,name,einheit,betrag_eur,prozent_vs,paragraph
+LIM-WERTS-GES,Wertsachen gesamt,Prozent VS,,,A 18.3.1
+LIM-BARGELD,Bargeld (ausserhalb Tresor),Prozent VS,,,A 18.3.2.1
+LIM-URKUNDEN,Urkunden/Wertpapiere,Prozent VS,,,A 18.2.2.2
+LIM-SCHMUCK,Schmuck (ausserhalb Tresor),Prozent VS,,,A 18.2.2.3
+LIM-FAHRRAD,Fahrrad-Diebstahl,EUR pro VF,,,Zusatzvereinbarung
+LIM-BALKONKRAFT,Balkonkraftwerk,EUR pro VF,,,A 8.3.3
+LIM-DIEB-GARTEN,Gartenmoebel-Diebstahl,EUR pro VF,,,A 4.2.6
+LIM-TRICKDIEB,Trickdiebstahl,EUR pro VF,,,A 4.2.3
+LIM-DIEB-KFZ,Diebstahl aus KFZ,EUR pro VF,,,A 4.2.1

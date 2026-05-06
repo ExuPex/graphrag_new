@@ -1,0 +1,12 @@
+id,name,paragraph,beschreibung,baustein_id,grenze_id
+S-HAUSRAT,Hausrat allgemein,A 8.1,"Alle Sachen, die dem Haushalt zur privaten Nutzung dienen.",,
+S-EINBAUKUECHE,Einbaukueche,A 8.3.1,Vom VN als Mieter/Eigentuemer auf eigene Kosten beschafft.,,
+S-BALKONKRAFT,Balkonkraftwerk,A 8.3.3,Steckersolaranlage der versicherten Wohnung.,,LIM-BALKONKRAFT
+S-FAHRRAD,Fahrrad,A 8.1,Versichert in der Wohnung und im verschlossenen Keller.,,LIM-FAHRRAD
+S-BARGELD,Bargeld,A 18.1.1.1,Bargeld und auf Karten geladene Geldbetraege.,,LIM-BARGELD
+S-SCHMUCK,Schmuck und Edelmetall,A 18.1.1.3,"Schmuck, Edelsteine, Perlen, Gold, Platin.",,LIM-SCHMUCK
+S-URKUNDEN,Urkunden und Wertpapiere,A 18.1.1.2,"Urkunden, Sparbuecher, Wertpapiere.",,LIM-URKUNDEN
+S-PELZE-KUNST,"Pelze, Teppiche, Kunst",A 18.1.1.4,"Pelze, handgeknuepfte Teppiche, Kunst, Silber.",,LIM-WERTS-GES
+S-GARTENMOEBEL,Gartenmoebel,A 4.2.6,Auf dem Grundstueck oder in Gemeinschaftsraeumen.,,LIM-DIEB-GARTEN
+S-HAUSTIER,Haustiere,A 8.3.8,"Tiere, die artgerecht in Wohnungen gehalten werden.",,
+S-ANTENNE,Antennenanlage/Markise,A 8.3.3,"Privat genutzt, der Wohnung dienend.",,
