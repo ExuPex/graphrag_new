@@ -7,7 +7,7 @@
 //     Bausteinen gleichzeitig
 //   - Neuer Knotentyp NichtHausrat (was laut A 9 nicht versichert ist)
 //
-// VOR dem Ausfuehren: DEIN-USER/DEIN-REPO durch deinen Pfad ersetzen
+// VOR dem Ausfuehren: ExuPex/graphrag_new durch deinen Pfad ersetzen
 // =============================================================================
 
 
@@ -24,27 +24,27 @@ CREATE CONSTRAINT nichthausrat_id   IF NOT EXISTS FOR (n:NichtHausrat)          
 
 // 2) Knoten laden
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/vertrag.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/vertrag.csv' AS row
 MERGE (n:Vertrag {id: row.id})
 SET n.name = row.name, n.modell = row.modell, n.stand = row.stand;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/bausteine.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/bausteine.csv' AS row
 MERGE (n:Deckungsbaustein {id: row.id})
 SET n.name = row.name, n.art = row.art, n.paragraph = row.paragraph;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/gefahren.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/gefahren.csv' AS row
 MERGE (n:Gefahr {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/ausschluesse.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 MERGE (n:Ausschluss {id: row.id})
 SET n.name = row.name, n.art = row.art, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/textchunks.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/textchunks.csv' AS row
 MERGE (n:TextChunk {id: row.id})
 SET n.paragraph = row.paragraph, n.titel = row.titel, n.text = row.text;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/grenzen.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/grenzen.csv' AS row
 MERGE (n:Entschaedigungsgrenze {id: row.id})
 SET n.name = row.name,
     n.einheit = row.einheit,
@@ -52,11 +52,11 @@ SET n.name = row.name,
     n.prozent_vs = CASE WHEN row.prozent_vs = '' THEN null ELSE toFloat(row.prozent_vs) END,
     n.paragraph = row.paragraph;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/sachen.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/sachen.csv' AS row
 MERGE (n:VersicherteSache {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/nicht_hausrat.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/nicht_hausrat.csv' AS row
 MERGE (n:NichtHausrat {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
@@ -68,33 +68,33 @@ MATCH (v:Vertrag), (b:Deckungsbaustein)
 MERGE (v)-[:HAT_BAUSTEIN]->(b);
 
 // Bausteine -> Gefahren
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/gefahren.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/gefahren.csv' AS row
 MATCH (b:Deckungsbaustein {id: row.baustein_id})
 MATCH (g:Gefahr {id: row.id})
 MERGE (b)-[:ENTHAELT_GEFAHR]->(g);
 
 // Spezielle Ausschluesse direkt an den angegebenen Baustein
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/ausschluesse.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 WITH row WHERE row.baustein_id <> 'ALLE'
 MATCH (b:Deckungsbaustein {id: row.baustein_id})
 MATCH (a:Ausschluss {id: row.id})
 MERGE (b)-[:SCHLIESST_AUS]->(a);
 
 // Generelle Ausschluesse an JEDEN Baustein haengen
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/ausschluesse.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 WITH row WHERE row.baustein_id = 'ALLE'
 MATCH (b:Deckungsbaustein)
 MATCH (a:Ausschluss {id: row.id})
 MERGE (b)-[:SCHLIESST_AUS]->(a);
 
 // Belege
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/textchunks.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/textchunks.csv' AS row
 MATCH (n) WHERE n.id = row.gehoert_zu_id
 MATCH (t:TextChunk {id: row.id})
 MERGE (n)-[:BELEGT_DURCH]->(t);
 
 // Sachen -> Grenzen
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/sachen.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/sachen.csv' AS row
 WITH row WHERE row.grenze_id <> ''
 MATCH (s:VersicherteSache {id: row.id})
 MATCH (g:Entschaedigungsgrenze {id: row.grenze_id})
