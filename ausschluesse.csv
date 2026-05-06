@@ -1,0 +1,7 @@
+id,name,art,paragraph,beschreibung
+AUS-KRIEG,Krieg,generell,A 2.1,"Schaeden durch Krieg, Buergerkrieg, Aufstand."
+AUS-KERN,Kernenergie,generell,A 2.3,Schaeden durch Kernenergie und radioaktive Substanzen.
+AUS-INNERE,Innere Unruhen,generell,A 2.2,Schaeden durch innere Unruhen.
+AUS-STURMFLUT,Sturmflut,speziell,A 6.5.1,Schaeden durch Sturmflut sind nicht versichert.
+AUS-PLANSCHWASSER,Plansch-/Reinigungswasser,speziell,A 5.4.1,Plansch- oder Reinigungswasser ist kein Leitungswasser.
+AUS-TROCKEN,Trockenheit,speziell,A 6.5.5,Schaeden durch Trockenheit oder Austrocknung.

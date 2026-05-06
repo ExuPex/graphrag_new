@@ -1,0 +1,6 @@
+id,name,art,paragraph
+B-FEUER,Feuer,basis,A 3
+B-EINBRUCH,Einbruch und Raub,basis,A 4
+B-LEITUNGSWASSER,Leitungswasser,basis,A 5
+B-STURM,Sturm und Hagel,basis,A 6.1-6.3
+B-ELEMENTAR,Elementar,optional,A 6.4

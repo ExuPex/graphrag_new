@@ -1,0 +1,14 @@
+id,name,baustein_id,paragraph,beschreibung
+G-BRAND,Brand,B-FEUER,A 3.1,"Feuer ohne bestimmungsgemaessen Herd, das sich aus eigener Kraft ausbreitet."
+G-BLITZ,Blitzschlag,B-FEUER,A 3.2,Unmittelbarer Uebergang eines Blitzes auf Sachen.
+G-EXPLOSION,Explosion,B-FEUER,A 3.4,Ploetzliche Kraftaeusserung durch Ausdehnung von Gasen oder Daempfen.
+G-EINBRUCH,Einbruchdiebstahl,B-EINBRUCH,A 4.1,Unberechtigtes Eindringen oder Aufbrechen mit Diebstahl.
+G-RAUB,Raub,B-EINBRUCH,A 4.4,Wegnahme unter Gewalt oder Drohung.
+G-VANDALISMUS,Vandalismus,B-EINBRUCH,A 4.3,Vorsaetzliche Zerstoerung nach Einbruch.
+G-LEITWASSER,Leitungswasser,B-LEITUNGSWASSER,A 5.2,Bestimmungswidrig austretendes Wasser aus Rohren oder Anlagen.
+G-BRUCH,Bruchschaden,B-LEITUNGSWASSER,A 5.3,Frostbedingte und sonstige Bruchschaeden an Rohren.
+G-STURM,Sturm,B-STURM,A 6.1,Wetterbedingte Luftbewegung ab Windstaerke 8.
+G-HAGEL,Hagel,B-STURM,A 6.2,Fester Witterungsniederschlag in Form von Eiskoernern.
+G-UEBERSCHWEMMUNG,Ueberschwemmung,B-ELEMENTAR,A 6.4.1,Ueberflutung des Grundstuecks mit Oberflaechenwasser.
+G-ERDBEBEN,Erdbeben,B-ELEMENTAR,A 6.4.3,Naturbedingte Erschuetterung des Erdbodens.
+G-LAWINE,Lawine,B-ELEMENTAR,A 6.4.7,"Schnee- oder Eismassen, die an Berghaengen niedergehen."
