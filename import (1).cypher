@@ -4,7 +4,7 @@
 // 5 Knotentypen, 4 Beziehungen, 5 CSV-Dateien.
 // In Aura: Workspace -> Query -> alles hier reinkopieren -> Strg+Enter.
 //
-// VOR dem Ausfuehren: ueberall DEIN-USER/DEIN-REPO durch deinen GitHub-Pfad
+// VOR dem Ausfuehren: ueberall ExuPex/graphrag_new durch deinen GitHub-Pfad
 // ersetzen, z.B. ExuPex/graphrag.
 // =============================================================================
 
@@ -19,23 +19,23 @@ CREATE CONSTRAINT chunk_id        IF NOT EXISTS FOR (n:TextChunk)        REQUIRE
 
 // 2) Knoten laden (5 LOAD-Bloecke, einer pro CSV)
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/vertrag.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/vertrag.csv' AS row
 MERGE (n:Vertrag {id: row.id})
 SET n.name = row.name, n.modell = row.modell, n.stand = row.stand;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/bausteine.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/bausteine.csv' AS row
 MERGE (n:Deckungsbaustein {id: row.id})
 SET n.name = row.name, n.art = row.art, n.paragraph = row.paragraph;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/gefahren.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/gefahren.csv' AS row
 MERGE (n:Gefahr {id: row.id})
 SET n.name = row.name, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/ausschluesse.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/ausschluesse.csv' AS row
 MERGE (n:Ausschluss {id: row.id})
 SET n.name = row.name, n.art = row.art, n.paragraph = row.paragraph, n.beschreibung = row.beschreibung;
 
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/textchunks.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/textchunks.csv' AS row
 MERGE (n:TextChunk {id: row.id})
 SET n.paragraph = row.paragraph, n.titel = row.titel, n.text = row.text;
 
@@ -47,7 +47,7 @@ MATCH (v:Vertrag), (b:Deckungsbaustein)
 MERGE (v)-[:HAT_BAUSTEIN]->(b);
 
 // Deckungsbaustein -[:ENTHAELT_GEFAHR]-> Gefahr (anhand baustein_id-Spalte in gefahren.csv)
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/gefahren.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/gefahren.csv' AS row
 MATCH (b:Deckungsbaustein {id: row.baustein_id})
 MATCH (g:Gefahr {id: row.id})
 MERGE (b)-[:ENTHAELT_GEFAHR]->(g);
@@ -57,7 +57,7 @@ MATCH (v:Vertrag), (a:Ausschluss)
 MERGE (v)-[:SCHLIESST_AUS]->(a);
 
 // Knoten -[:BELEGT_DURCH]-> TextChunk (anhand gehoert_zu_id in textchunks.csv)
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/DEIN-USER/DEIN-REPO/main/textchunks.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ExuPex/graphrag_new/main/textchunks.csv' AS row
 MATCH (n) WHERE n.id = row.gehoert_zu_id
 MATCH (t:TextChunk {id: row.id})
 MERGE (n)-[:BELEGT_DURCH]->(t);
